@@ -17,6 +17,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_SONGID = "SongID";
     public static final String COLUMN_SONG_NAME = "SongName";
     public static final String COLUMN_ALBUMID_FK = "AlbumID";
+    public static final String COLUMN_MP3 = "SongAudio";
 
 
 
@@ -38,7 +39,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_SONGS_TABLE = "CREATE TABLE " + SONGS + "(" + COLUMN_SONGID + " TEXT," + COLUMN_SONG_NAME + " TEXT," + COLUMN_ALBUMID_FK + " TEXT" + ")";
+        String CREATE_SONGS_TABLE = "CREATE TABLE " + SONGS + "(" + COLUMN_SONGID + " TEXT," + COLUMN_SONG_NAME + " TEXT," + COLUMN_ALBUMID_FK + " TEXT," +  COLUMN_MP3 + " TEXT" + ")";
         String CREATE_ALBUMS_TABLE = "CREATE TABLE " + ALBUMS + "(" + COLUMN_ALBUMID_PK + " TEXT," + COLUMN_ALBUM_NAME + " TEXT," + COLUMN_ARTISTID_FK + " TEXT" + ")";
         String CREATE_ARTIST_TABLE = "CREATE TABLE " + ARTIST + "(" + COLUMN_ARTISTID_PK + " TEXT," + COLUMN_ALBUM_NAME + " TEXT" +  ")";
         db.execSQL(CREATE_SONGS_TABLE);
@@ -46,10 +47,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_ARTIST_TABLE);
 
 
-        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID ) VALUES ('S1','Bad Guy','A001')");
-        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID ) VALUES ('S2','South Border','A002')");
-        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID ) VALUES ('S3','Bad Guy','A003')");
-
+        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID, MP3 ) VALUES ('S1','Bad Guy','A001',"+R.raw.badguy+")");
+        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID, MP3 ) VALUES ('S2','South Border','A002',"+R.raw.southborder+")");
+        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID ) VALUES ('S3','Indigo','A003',"+R.raw.indigo+")");
 
 
     }
