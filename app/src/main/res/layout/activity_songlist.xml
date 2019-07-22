@@ -27,7 +27,7 @@
             android:text="Artist Name"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:id="@+id/song_name_listview"/>
+            android:id="@+id/song_name_list"/>
     </LinearLayout>
 
 

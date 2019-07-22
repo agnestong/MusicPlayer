@@ -2,6 +2,7 @@ package com.example.musicplayer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,11 +16,11 @@ import java.util.List;
 public class SongViewAdapter extends RecyclerView.Adapter<SongViewAdapter.SongViewHolder> {
 
     Context mContext;
-    List<Song> mData;
+    List<Song> songList;
 
-    public SongViewAdapter(Context mContext, List<Song> mData) {
-        this.mContext = mContext;
-        this.mData = mData;
+    public SongViewAdapter(Context context, List<Song> songList) {
+        this.mContext = context;
+        this.songList = songList;
     }
 
 
@@ -37,13 +38,15 @@ public class SongViewAdapter extends RecyclerView.Adapter<SongViewAdapter.SongVi
     @Override
     public void onBindViewHolder(@NonNull SongViewAdapter.SongViewHolder songViewHolder, int i) {
 
-        songViewHolder.tv_songName.setText(mData.get(i).getSongName());
-        songViewHolder.img_song.setImageResource(mData.get(i).getSongPhoto());
+        Song song = songList.get(i);
+
+        songViewHolder.tv_songName.setText(song.getSongName());
+        songViewHolder.img_song.setImageResource(song.getAlbumPhoto());
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return songList.size();
     }
 
     public static class SongViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -1,6 +1,8 @@
 package com.example.musicplayer;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,10 +15,11 @@ public class AlbumActivity extends AppCompatActivity {
 
 
     private RecyclerView myrv;
-    private List<Album> albumList;
     private Context mContext;
     private RecyclerView.LayoutManager mLayoutManager;
     private AlbumActivityAdapter adapter;
+    List<Album> albumList;
+
 
 
     @Override
@@ -24,10 +27,9 @@ public class AlbumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
 
-        albumList = new ArrayList<>();
-        albumList.add(new Album("÷(Deluxe)","Ed Sheeran",R.drawable.ed_album1));
-        albumList.add(new Album("WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?","Billie Eilish",R.drawable.billie_album1));
-        albumList.add(new Album("FIVE STARS","Higher Brothers",R.drawable.higherbrothers_album1));
+
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null,1);
+        albumList = dbHandler.displayAlbum();
 
 
         myrv = findViewById(R.id.album_list);
@@ -36,7 +38,7 @@ public class AlbumActivity extends AppCompatActivity {
         adapter = new AlbumActivityAdapter(this, albumList);
         mLayoutManager = new GridLayoutManager(mContext,2);
         myrv.setLayoutManager(mLayoutManager);
-        myrv.setAdapter(adapter );
+        myrv.setAdapter(adapter);
 
     }
 }

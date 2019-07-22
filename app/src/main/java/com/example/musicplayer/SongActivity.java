@@ -1,50 +1,49 @@
 package com.example.musicplayer;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SongActivity extends AppCompatActivity {
 
 
     SongActivityAdapter adapter;
-    ArrayList<Song> songList;
-    ListView list;
+    RecyclerView myrv;
+    List<Song> songList;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
 
-        //DATA
-        songList = new ArrayList<>();
-        songList.add(new Song("","Billie Eilish", R.drawable.billie_artist1));
-        songList.add(new Song(""," Ed Sheeran", R.drawable.edsheeran_artist2));
-        songList.add(new Song("","Higher Brother", R.drawable.higherbro_artist3));
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null,1);
 
-
-        adapter = new SongActivityAdapter(this,R.layout.activity_songlist, songList);
-        list = findViewById(R.id.song_list); //id name of the list in xml
-        list.setAdapter(adapter);
+        songList = dbHandler.displaySong();
 
 
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(SongActivity.this, NowPlayingActivity.class);
-                intent.putExtra("Song Name", list.getItemAtPosition(position).toString());
-                startActivity(intent);
-            }
-        });
+
+        myrv = findViewById(R.id.song_list);
 
 
+        adapter = new SongActivityAdapter(this, songList);
+        myrv.setLayoutManager(new LinearLayoutManager(this));
+        myrv.setAdapter(adapter);
 
     }
 

@@ -2,25 +2,26 @@ package com.example.musicplayer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AlphabetIndexer;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
 
 public class ArtistViewAdapter extends RecyclerView.Adapter<ArtistViewAdapter.ArtistViewHolder> {
 
     Context mContext;
     List<Artist> mData;
 
-    public ArtistViewAdapter(Context mContext, List<Artist> mData) {
-        this.mContext = mContext;
-        this.mData = mData;
+    public ArtistViewAdapter(Context context, List<Artist> data) {
+        this.mContext = context;
+        this.mData = data;
     }
 
 
@@ -38,6 +39,7 @@ public class ArtistViewAdapter extends RecyclerView.Adapter<ArtistViewAdapter.Ar
     @Override
     public void onBindViewHolder(@NonNull ArtistViewHolder artistViewHolder, int i) {
 
+        //ERROR
         artistViewHolder.tv_artistName.setText(mData.get(i).getArtistName());
         artistViewHolder.img_artist.setImageResource(mData.get(i).getArtistPhoto());
     }

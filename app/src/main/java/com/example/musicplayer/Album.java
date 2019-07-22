@@ -1,11 +1,14 @@
 package com.example.musicplayer;
 
-import android.media.MediaPlayer;
+
+
 
 public class Album {
     private String AlbumName;
     public String ArtistName;
     private int AlbumPhoto;
+
+    public Album(){}
 
 
 
@@ -15,6 +18,8 @@ public class Album {
         AlbumPhoto = albumPhoto;
     }
 
+
+    // To display on the album cardview
     public String getAlbumName() {
         return AlbumName;
     }
@@ -23,6 +28,9 @@ public class Album {
         AlbumName = albumName;
     }
 
+    // when click in from artits list to show albums, have to display artist list
+    // IN ALBUMACTIVITY!!!
+
     public String getArtistName() {
         return ArtistName;
     }
@@ -30,6 +38,9 @@ public class Album {
     public void setArtistName(String artistName) {
         ArtistName = artistName;
     }
+
+    // FOR BOTH FRAGMENT ALBUM AND ALBUM ACTIVITY!!
+    // Also.....for nowplaying activity and song activity...
 
     public int getAlbumPhoto() {
         return AlbumPhoto;

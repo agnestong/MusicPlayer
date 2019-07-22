@@ -4,12 +4,18 @@ public class Song {
 
     private String SongID;
     private String SongName;
-    private int SongPhoto;
+    private int AlbumPhoto;
+    private String AlbumName;
+    private long SongAudio;
 
-    public Song(String songID, String songName, int songPhoto) {
+    public Song(){}
+
+    public Song(String songID, String songName, int albumPhoto, String albumName, long songAudio) {
         SongID = songID;
         SongName = songName;
-        SongPhoto = songPhoto;
+        AlbumPhoto = albumPhoto;
+        AlbumName = albumName;
+        SongAudio = songAudio;
     }
 
     public String getSongID() {
@@ -28,11 +34,28 @@ public class Song {
         SongName = songName;
     }
 
-    public int getSongPhoto() {
-        return SongPhoto;
+    public int getAlbumPhoto() {
+        return AlbumPhoto;
     }
 
-    public void setSongPhoto(int songPhoto) {
-        SongPhoto = songPhoto;
+    public void setAlbumPhoto(int albumPhoto) {
+        AlbumPhoto = albumPhoto;
+    }
+
+    public String getAlbumName() {
+        return AlbumName;
+    }
+
+    public void setAlbumName(String albumName) {
+        AlbumName = albumName;
+    }
+
+    public long getSongAudio() {
+        return SongAudio;
+    }
+
+    public void setSongAudio(long songAudio) {
+        SongAudio = songAudio;
     }
 }
+

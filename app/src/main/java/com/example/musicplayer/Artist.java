@@ -15,9 +15,13 @@ public class Artist {
 
 
     //Getter
+
+    // To show on the Artist list
     public String getArtistName() {
         return ArtistName;
     }
+
+    // to show on artist list
 
     public int getArtistPhoto() {
         return ArtistPhoto;

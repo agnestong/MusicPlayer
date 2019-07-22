@@ -2,6 +2,7 @@ package com.example.musicplayer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,9 +19,9 @@ public class AlbumActivityAdapter extends RecyclerView.Adapter<AlbumActivityAdap
     Context mContext;
     List<Album> mData;
 
-    public AlbumActivityAdapter(Context mContext, List<Album> mData) {
-        this.mContext = mContext;
-        this.mData = mData;
+    public AlbumActivityAdapter(Context context, List<Album> data) {
+        this.mContext = context;
+        this.mData = data;
     }
 
     @NonNull
@@ -37,10 +38,9 @@ public class AlbumActivityAdapter extends RecyclerView.Adapter<AlbumActivityAdap
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int i) {
 
-        holder.tv_album_name.setText(mData.get(i).getAlbumName());
-        holder.img_album.setImageResource(mData.get(i).getAlbumPhoto());
 
-
+       holder.tv_album_name.setText(mData.get(i).getAlbumName());
+       holder.img_album.setImageResource(mData.get(i).getAlbumPhoto());
 
     }
 
@@ -49,12 +49,15 @@ public class AlbumActivityAdapter extends RecyclerView.Adapter<AlbumActivityAdap
         return mData.size();
     }
 
+
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView tv_album_name;
         private ImageView img_album;
-        private LinearLayout layout;
 
+
+
+        // Constructor for ViewHolder class
 
         public MyViewHolder(View itemView){
             super(itemView);
@@ -63,12 +66,9 @@ public class AlbumActivityAdapter extends RecyclerView.Adapter<AlbumActivityAdap
 
             tv_album_name = itemView.findViewById(R.id.album_name_list);
             img_album = itemView.findViewById(R.id.album_img_list);
-            layout = itemView.findViewById( R.id.album_list);
 
 
         }
-
-
         @Override
         public void onClick(View v) {
             Context mContext = v.getContext();

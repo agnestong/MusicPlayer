@@ -2,45 +2,75 @@ package com.example.musicplayer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class SongActivityAdapter extends ArrayAdapter<Song> {
+public class SongActivityAdapter extends RecyclerView.Adapter<SongActivityAdapter.SongViewHolder> {
 
     Context mContext;
-    int layout;
-    ArrayList<Song> mData;
-
-    public SongActivityAdapter(Context mContext, int layout, ArrayList<Song> mData) {
-        super(mContext, layout, mData);
-        this.mContext = mContext;
-        this.layout = layout;
-        this.mData = mData;
+    List<Song> songList;
+    public SongActivityAdapter(Context context, List<Song> songList) {
+        this.mContext = context;
+        this.songList = songList;
     }
+
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = LayoutInflater.from(mContext).inflate(layout,
-                    parent, false);
+    public SongActivityAdapter.SongViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
+        View view;
+        view = LayoutInflater.from(mContext).inflate(R.layout.song_recyclerview, viewGroup, false);
+        SongViewHolder viewHolder = new SongViewHolder(view);
 
-        Song song = mData.get(position);
-
-        TextView SongName = convertView.findViewById(R.id.song_name_listview);
-        SongName.setText(song.getSongName());
-        ImageView SongPhoto = convertView.findViewById(R.id.song_img_list);
-        SongPhoto.setImageResource(song.getSongPhoto());
-
-        return convertView;
+        return viewHolder;
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull SongActivityAdapter.SongViewHolder songViewHolder, int i) {
+
+        Song song = songList.get(i);
+        songViewHolder.tv_songName.setText(song.getSongName());
+        songViewHolder.img_song.setImageResource(song.getAlbumPhoto());
+    }
+
+    @Override
+    public int getItemCount() {
+        return songList.size();
+    }
+
+    public static class SongViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+
+        private TextView tv_songName;
+        private ImageView img_song;
+
+
+        public SongViewHolder(View itemView){
+            super(itemView);
+
+            tv_songName = itemView.findViewById(R.id.song_name_list);
+            img_song = itemView.findViewById(R.id.song_img_list);
+
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v)
+        {
+            Context mContext = v.getContext();
+            Intent intent = new Intent(mContext,NowPlayingActivity.class );
+            mContext.startActivity(intent);
+        }
+
+    }
 }
