@@ -31,7 +31,7 @@ public class NowPlayingActivity extends AppCompatActivity {
         remainingTimeLabel = findViewById(R.id.remainingTimeLabel);
 
 
-        player = MediaPlayer.create(this, R.raw.southborder);
+        player = MediaPlayer.create(this, R.raw.badguy);
         player.setLooping(true);
         player.seekTo(0);
         player.setVolume(0.5f,0.5f);

@@ -84,31 +84,20 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
 
-   /* public Cursor displayAlbum()
-    {
-        String query = "SELECT * FROM " + ALBUMS;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-
-        db.close();
-        return cursor;
-
-    }
-    */
-
    public List<Album> displayAlbum(){
        String query = "SELECT * FROM " + ALBUMS;
        List<Album> albumList = new ArrayList<>();
        SQLiteDatabase db = this.getReadableDatabase();
        Cursor cursor = db.rawQuery(query,null);
 
-       Album albumData = new Album();
 
-       if (cursor.moveToFirst()) {
-           albumData.setAlbumName(cursor.getString(1));
-           albumData.setAlbumPhoto(cursor.getInt(3));
-           albumList.add(albumData);
-       } while (cursor.moveToNext());
+        while (cursor.moveToNext())
+        {
+            Album albumData = new Album();
+            albumData.setAlbumName(cursor.getString(1));
+            albumData.setAlbumPhoto(cursor.getInt(3));
+            albumList.add(albumData);
+       }
 
        db.close();
        return albumList;
@@ -122,13 +111,15 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query,null);
 
-        Artist artistData = new Artist();
 
-        if (cursor.moveToFirst()) {
+
+        while (cursor.moveToNext())
+        {
+            Artist artistData = new Artist();
             artistData.setArtistName(cursor.getString(1));
             artistData.setArtistPhoto(cursor.getInt(2));
             artistList.add(artistData);
-        } while (cursor.moveToNext());
+        }
 
         db.close();
         return artistList;
@@ -141,48 +132,22 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query,null);
 
-        Song songData = new Song();
 
-        if (cursor.moveToFirst()) {
-            songData.setSongName(cursor.getString(1));
-            songData.setAlbumPhoto(cursor.getInt(3)); // Cannot set album photo...do inner join but what column index to indicate?
-            songList.add(songData);
-        } while (cursor.moveToNext());
+
+
+         while (cursor.moveToNext())
+         {
+             Song songData = new Song();
+             songData.setSongName(cursor.getString(1));
+             songData.setAlbumPhoto(cursor.getInt(3)); // Cannot set album photo...do inner join but what column index to indicate?
+             songList.add(songData);
+        }
 
         db.close();
         return songList;
 
 
     }
-
-
-
-
-    /*public Cursor displayArtist()
-    {
-        String query = "SELECT * FROM " + ARTIST;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-
-
-        db.close();
-        return cursor;
-
-    } */
-
-
-    /*public Cursor displaySong()
-    {
-        String query = "SELECT * FROM " + SONGS;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-
-
-        db.close();
-        return cursor;
-
-    }*/
-
 
 
 }
