@@ -1,4 +1,4 @@
-package com.example.musicplayer;
+package com.ngeeann.musicplayer;
 
 public class Artist {
     private String ArtistName;

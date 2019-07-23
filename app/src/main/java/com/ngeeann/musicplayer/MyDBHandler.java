@@ -1,7 +1,6 @@
 
-package com.example.musicplayer;
+package com.ngeeann.musicplayer;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

@@ -1,4 +1,4 @@
-package com.example.musicplayer;
+package com.ngeeann.musicplayer;
 
 import android.content.Intent;
 import android.os.Handler;

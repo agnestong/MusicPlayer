@@ -1,6 +1,5 @@
-package com.example.musicplayer;
+package com.ngeeann.musicplayer;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
