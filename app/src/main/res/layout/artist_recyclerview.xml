@@ -9,7 +9,7 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:id="@+id/artist_img_id"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@mipmap/moosicplayer_round"/>
 
     <LinearLayout
 
