@@ -1,0 +1,19 @@
+Team members:
+Glenn Kam
+Damien
+Tong Jing Xuan S10185743
+
+Description of App:
+
+An app that is designed to play pre-existing music from the in app database.
+Contains an album page, artist page and song page.
+
+Roles and Contribution:
+Glenn: added hardcoded data for the "SONGS" table in database
+Damien: None.
+
+Jing Xuan:
+- Did layout for all the activities and fragments of the app.
+- Implement codes for all the activities
+- Implement codes for all the adapter and java class codes
+- Did most of the database (MyDBHandler) apart from the section completed by glenn
