@@ -52,7 +52,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_ARTIST_TABLE);
 
 
-        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID, MP3 ) VALUES ('S1','Bad Guy','A001',"+R.raw.badguy+")");
+        db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID, MP3 ) VALUES ('S1','Bad Guy','A001',"+R.raw.somefeeling+")");
         db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID, MP3 ) VALUES ('S2','South Border','A002',"+R.raw.southborder+")");
         db.execSQL("INSERT INTO " + SONGS+ "(SongID, SongName, AlbumID, MP3 ) VALUES ('S3','Indigo','A003',"+R.raw.indigo+")");
 
@@ -145,8 +145,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return songList;
 
-
     }
+
+
 
 
 }
