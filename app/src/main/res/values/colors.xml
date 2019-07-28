@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#121212</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="tabTextColor">#ffffff</color>
+    <color name="tabTextColor">#FFFFFF</color>
     <color name="tabIndicatorColor">#BB86FC</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="NPlayingColor">#616161</color>
 
 </resources>

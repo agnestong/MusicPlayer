@@ -31,7 +31,7 @@ public class NowPlayingActivity extends AppCompatActivity {
         remainingTimeLabel = findViewById(R.id.remainingTimeLabel);
 
 
-        player = MediaPlayer.create(this, R.raw.badguy);
+        player = MediaPlayer.create(this, R.raw.southborder);
         player.setLooping(true);
         player.seekTo(0);
         player.setVolume(0.5f,0.5f);
@@ -96,6 +96,9 @@ public class NowPlayingActivity extends AppCompatActivity {
 
             }
         }).start();
+
+        player.start();
+        playBtn.setBackgroundResource(R.drawable.stop);
     }
 
     @SuppressLint("HandlerLeak")
@@ -143,5 +146,15 @@ public class NowPlayingActivity extends AppCompatActivity {
             player.pause();
             playBtn.setBackgroundResource(R.drawable.play);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (player == null) {
+            player = new MediaPlayer();
+        }
+
+        player.start();
     }
 }

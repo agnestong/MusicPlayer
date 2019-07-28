@@ -4,44 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:gravity="center"
-        android:elevation="0dp"
-        android:id="@+id/appbar_id"
-        >
+        android:layout_height="125dp">
 
-        <TextView
-            android:id="@+id/appName"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Music Player"
-            android:textColor="@color/tabTextColor"
-            android:textSize="25dp"
-            android:paddingLeft="20dp"/>
-    </android.support.design.widget.AppBarLayout>
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:paddingLeft="20dp"
+                android:text="Music Player"
+                android:textAlignment="textStart"
+                android:textColor="@color/tabTextColor"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/btnNPlay"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:background="@color/NPlayingColor"
+                android:onClick="onClick"
+                android:text="Now Playing"
+                android:textColor="@color/tabTextColor" />
+        </android.support.design.widget.AppBarLayout>
+    </LinearLayout>
 
     <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         app:tabGravity="fill"
-        app:tabMode="fixed"
-        android:id="@+id/tab_layout_id"
-        app:tabTextColor="@color/tabTextColor"
         app:tabIndicatorColor="@color/tabIndicatorColor"
-        android:background="@color/colorPrimary"/>
+        app:tabMode="fixed"
+        app:tabTextColor="@color/tabTextColor" />
 
     <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/viewpager_id"></android.support.v4.view.ViewPager>
-
-
-
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
 
 
 </LinearLayout>

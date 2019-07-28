@@ -1,10 +1,13 @@
 package com.ngeeann.musicplayer;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
+    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
         tablayout.getTabAt(0).setIcon(R.drawable.ic_album);
         tablayout.getTabAt(1).setIcon(R.drawable.ic_artist);
         tablayout.getTabAt(2).setIcon(R.drawable.ic_song);
+    }
 
-
-
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, NowPlayingActivity.class);
+        startActivity(intent);
+        player.stop();
     }
 }
