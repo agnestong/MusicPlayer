@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tablayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
+    //NowPlayingActivity player;
     MediaPlayer player;
 
     @Override
@@ -42,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, NowPlayingActivity.class);
-        startActivity(intent);
-        player.stop();
+
+            Intent intent = new Intent(MainActivity.this, NowPlayingActivity.class);
+            startActivity(intent);
+            player.stop();
+
     }
 }

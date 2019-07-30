@@ -18,7 +18,7 @@ public class NowPlayingActivity extends AppCompatActivity {
     SeekBar volumeBar;
     TextView elapsedTimeLabel;
     TextView remainingTimeLabel;
-    MediaPlayer player;
+    static MediaPlayer player;
     int totalTime;
 
     @Override
@@ -157,4 +157,16 @@ public class NowPlayingActivity extends AppCompatActivity {
 
         player.start();
     }
+
+    /*@Override
+    protected void onRestart() {
+        super.onRestart();
+        if (player == null) {
+            player = new MediaPlayer();
+        }
+        if (player.isPlaying())
+            player.stop();
+
+        player.start();
+    }*/
 }
