@@ -10,7 +10,7 @@ Contains an album page, artist page and song page.
 
 Roles and Contribution:
 Glenn: added hardcoded data for the "SONGS" table in database
-Damien: None.
+Damien: Return to Now Playing activity without overlapping song
 
 Jing Xuan:
 - Did layout for all the activities and fragments of the app.
