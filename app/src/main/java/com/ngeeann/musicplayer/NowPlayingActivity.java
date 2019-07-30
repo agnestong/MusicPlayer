@@ -168,5 +168,5 @@ public class NowPlayingActivity extends AppCompatActivity {
             player.stop();
 
         player.start();
-    }*/
+    }*///
 }
