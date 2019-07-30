@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,13 +41,21 @@ public class MainActivity extends AppCompatActivity {
         tablayout.getTabAt(0).setIcon(R.drawable.ic_album);
         tablayout.getTabAt(1).setIcon(R.drawable.ic_artist);
         tablayout.getTabAt(2).setIcon(R.drawable.ic_song);
+
+        Button btnNPlaying = findViewById(R.id.btnNPlay);
+        btnNPlaying.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NowPlayingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void onClick(View v) {
+    /*public void onClick(View v) {
 
-            Intent intent = new Intent(MainActivity.this, NowPlayingActivity.class);
-            startActivity(intent);
-            player.stop();
+        Intent intent = new Intent(MainActivity.this, NowPlayingActivity.class);
+        startActivity(intent);
 
-    }
+    }*/
 }
