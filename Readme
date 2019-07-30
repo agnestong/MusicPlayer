@@ -1,6 +1,6 @@
 Team members:
-Glenn Kam
-Damien
+Glenn Kam S10188774
+Damien Tan S10189272
 Tong Jing Xuan S10185743
 
 Description of App:
@@ -10,7 +10,7 @@ Contains an album page, artist page and song page.
 
 Roles and Contribution:
 Glenn: added hardcoded data for the "SONGS" table in database
-Damien: Return to Now Playing activity without overlapping song
+Damien: Return to Now Playing activity without overlapping current song playing
 
 Jing Xuan:
 - Did layout for all the activities and fragments of the app.
